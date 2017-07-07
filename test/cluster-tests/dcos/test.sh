@@ -64,7 +64,7 @@ if [[ "$?" != "0" ]]; then log "Failed to configure dcos"; exit 1; fi
 
 log "Copying marathon.json"
 
-${remote_cp} "${DIR}/${MARATHON_JSON}" azureuser@${INSTANCE_NAME}.${LOCATION}.cloudapp.azure.com:marathon.json
+${remote_cp} "${DIR}/${MARATHON_JSON}" azureuser@${INSTANCE_NAME}.${LOCATION}.${FQDNSuffix}:marathon.json
 if [[ "$?" != "0" ]]; then log "Failed to copy marathon.json"; exit 1; fi
 
 # feed agentFQDN to marathon.json
